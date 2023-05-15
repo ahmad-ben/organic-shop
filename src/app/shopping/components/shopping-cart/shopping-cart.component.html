@@ -1,0 +1,51 @@
+<h1>Shopping Cart</h1>
+<div class="row col-md-9 col-md-6" *ngIf="(cart$ | async) as shoppingCart">
+  <p>You Have {{ shoppingCart.totalItemCount }} In Your Shopping Cart</p>
+  <table class="table" *ngIf="shoppingCart.totalItemCount" >
+    <thead>
+      <tr>
+        <th></th>
+        <th>Product</th>
+        <th style="width: 220px">Quantity</th>
+        <th class="text-end">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let productArray of shoppingCart.productsInfoArr">
+        <td class="d-flex justify-content-center align-items-center">
+          <div class="product-image" [style.backgroundImage]="'url(' + productArray.product.imageUrl + ')'"></div>
+        </td>
+        <td>{{ productArray.product.title }}</td>
+        <td style="width: 220px" class="px-0">
+          <product-quantity [product]="productArray.product" [shopping-cart]="shoppingCart" ></product-quantity>
+        </td>
+        <td class="text-end">
+          {{ productArray.totalPrice | currency:'USD':'symbol'}}
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th style="width: 220px"></th>
+        <th class="text-end"> {{ shoppingCart.totalPrice | currency:'USD':'symbol' }} </th>
+      </tr>
+    </tfoot>
+  </table>
+  <a
+  routerLink="/check-out"
+  *ngIf="shoppingCart.totalItemCount"
+  class="btn btn-primary btn-sm ms-2 text-white"
+  style="width: fit-content;"
+  >
+  Check Out
+  </a>
+  <button
+    *ngIf="shoppingCart.totalItemCount"
+    (click)="deleteCart()"
+    class="btn btn-danger btn-sm ms-2"
+    style="width: fit-content;"
+  >Clear Card
+  </button>
+</div>

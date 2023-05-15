@@ -1,0 +1,29 @@
+<h1>Order Info</h1>
+<div class="row col-md-9 col-md-6">
+  <table class="table" *ngIf=" wantedOrder$! | async as order">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let shippingInfo of order.shippingInfo">
+        <td class="d-flex justify-content-center align-items-center">
+          <div
+            class="product-image"
+            [style.backgroundImage]="'url(' + shippingInfo.productInfo.imageUrl + ')'"
+          ></div>
+        </td>
+        <td> {{ shippingInfo.productInfo.title }} </td>
+        <td class="fw-bold"> {{ shippingInfo.productInfo.price  | currency:'USD':'symbol'}} </td>
+        <td> {{ shippingInfo.productInfo.quantity }} </td>
+        <td class="fw-bold"> {{ shippingInfo.productInfo.totalPrice  | currency:'USD':'symbol'}} </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+

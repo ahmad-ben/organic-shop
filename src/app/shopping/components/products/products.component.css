@@ -1,0 +1,14 @@
+@media (max-width: 575px) {
+  .products{
+    margin: 0px;
+    padding: 0px;
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+  }
+  .products-carts{
+    margin: 0px;
+    padding: 0px;
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+  }
+}

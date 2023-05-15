@@ -1,0 +1,48 @@
+<form #form="ngForm" (ngSubmit)="saveOrderInfo()">
+
+  <div class="form-group">
+    <label for="name"> Name </label>
+    <input
+      [(ngModel)]="buyerInfo.name" name="name" #name="ngModel" required
+      id="name" type="text" class="form-control" placeholder="name"
+    >
+    <div class="alert alert-danger py-1" *ngIf=" name.touched && name.invalid ">
+      Name Is Required
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="address"> Address </label>
+      <input
+        [(ngModel)]="buyerInfo.addressLine1" name="addressLine1" required #addressLine1="ngModel"
+        id="address" type="text" class="form-control mb-2" placeholder="line 1"
+      >
+    <div class="alert alert-danger py-1" *ngIf=" addressLine1.touched && addressLine1.invalid ">
+      <div *ngIf=" addressLine1.errors!['required'] ">address Is Required</div>
+    </div>
+      <input
+        [(ngModel)]="buyerInfo.addressLine2" name="addressLine2" required #addressLine2="ngModel"
+        id="address" type="text" class="form-control" placeholder="line 2"
+      >
+    <div class="alert alert-danger py-1" *ngIf=" addressLine2.touched && addressLine2.invalid ">
+      <div *ngIf=" addressLine2.errors!['required'] ">address Is Required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="cityName"> City </label>
+    <input
+      [(ngModel)]="buyerInfo.cityName" name="cityName" required #cityName="ngModel"
+      id="cityName" type="url" class="form-control" placeholder="city"
+    >
+    <div class="alert alert-danger py-1" *ngIf=" cityName.touched && cityName.invalid ">
+      <div *ngIf=" cityName.errors?.['required'] ">City Is Required</div>
+    </div>
+  </div>
+
+  <div>
+    <button [disabled]="!form.valid" class="btn btn-primary m-2"> Save </button>
+  </div>
+
+
+</form>
