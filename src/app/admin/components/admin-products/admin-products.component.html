@@ -41,8 +41,10 @@
 
 </table>
 
-<div class="d-flex justify-content-between p-2">
+<div
+class="d-flex justify-content-between align-items-center flex-sm-row flex-column-reverse p-2">
 	<ngb-pagination
+    class="mb-0"
 		[collectionSize]="collectionSize"
 		[(page)]="page"
 		[pageSize]="pageSize"
@@ -50,7 +52,7 @@
 	>
 	</ngb-pagination>
 
-	<select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
+	<select class="form-select mb-2 mb-sm-0" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCountries()">
 		<option [ngValue]="2">2 items per page</option>
 		<option [ngValue]="4">4 items per page</option>
 		<option [ngValue]="6">6 items per page</option>
