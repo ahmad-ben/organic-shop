@@ -19,10 +19,9 @@ export class AdminOrdersComponent {
   allOrders$!: Observable<OrderInfo[]>;
 
   constructor(
-    private orderService: OrderService,
+    orderService: OrderService,
   ){
     this.allOrders$ = orderService.getAllOrders();
   }
-
 
 }

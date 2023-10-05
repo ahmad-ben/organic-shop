@@ -6,7 +6,7 @@
       <tr>
         <th></th>
         <th>Product</th>
-        <th style="width: 220px">Quantity</th>
+        <th style="width: 220px;">Quantity</th>
         <th class="text-end">Price</th>
       </tr>
     </thead>
@@ -16,7 +16,7 @@
           <div class="product-image" [style.backgroundImage]="'url(' + productArray.product.imageUrl + ')'"></div>
         </td>
         <td>{{ productArray.product.title }}</td>
-        <td style="width: 220px" class="px-0">
+        <td style="width: 220px;" class="px-0">
           <product-quantity [product]="productArray.product" [shopping-cart]="shoppingCart" ></product-quantity>
         </td>
         <td class="text-end">

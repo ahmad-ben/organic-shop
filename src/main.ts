@@ -26,7 +26,6 @@ bootstrapApplication(AppComponent,
         provideAnalytics(() => getAnalytics()), //=>For Firebase Analytics.
         provideDatabase(() => getDatabase()), //=>For Firebase Database.
         provideFirestore(() => getFirestore()), //=>For FireStore.
-        //=>provideFireStore(() => getFireStore()), => For Firebase FireStore.
         AngularFireModule.initializeApp( environment.firebaseConfig ),
       ),
     ],

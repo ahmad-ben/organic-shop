@@ -28,9 +28,7 @@ export class AdminOrderInfoComponent {
     this.wantedOrder$ = orderService.getAllOrders().pipe(
       map<OrderInfo[], OrderInfo>((allIdOrders: any[]) => {
         let routeOrderIndex = this.route.snapshot.paramMap.get('index') as string;
-        return allIdOrders.find((order, orderIndex) => {
-          return (routeOrderIndex == orderIndex.toString())
-        })
+        return allIdOrders.find ( (order, orderIndex) => (routeOrderIndex == orderIndex.toString()) )
       }),
     )
 
