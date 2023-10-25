@@ -1,0 +1,9 @@
+.card img{
+  height: 235px;
+  object-fit: cover;
+}
+
+.card .card-footer{
+  min-height: 36px;
+}
+

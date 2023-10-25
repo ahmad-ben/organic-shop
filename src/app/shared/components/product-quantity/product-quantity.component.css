@@ -1,3 +1,12 @@
+.product-quantity-com{
+  min-height: 36px;
+}
+
+.decreaseItemBtn,
+.increaseItemBtn{
+  min-height: 36px;
+}
+
 @media (max-width: 500px) {
   .decreaseItemBtn,
   .increaseItemBtn{

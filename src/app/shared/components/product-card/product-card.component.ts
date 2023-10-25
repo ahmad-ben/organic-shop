@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { product } from '../../models/product';
 import { ShoppingCartService } from '../../services/shopping-cart/shopping-cart.service';
@@ -9,7 +9,8 @@ import { ProductQuantityComponent } from '../product-quantity/product-quantity.c
   standalone: true,
   imports: [
     CommonModule,
-    ProductQuantityComponent
+    ProductQuantityComponent,
+    NgOptimizedImage
   ],
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css']
