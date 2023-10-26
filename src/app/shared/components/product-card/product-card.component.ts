@@ -1,4 +1,4 @@
-import { CommonModule, NgOptimizedImage } from '@angular/common';
+import { CommonModule, IMAGE_LOADER, ImageLoaderConfig, NgOptimizedImage } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { product } from '../../models/product';
 import { ShoppingCartService } from '../../services/shopping-cart/shopping-cart.service';
@@ -11,6 +11,14 @@ import { ProductQuantityComponent } from '../product-quantity/product-quantity.c
     CommonModule,
     ProductQuantityComponent,
     NgOptimizedImage
+  ],
+  providers: [
+    {
+      provide: IMAGE_LOADER,
+      useValue: (config: ImageLoaderConfig) => {
+        return `https://ik.imagekit.io/AhmedBenChakhter/${config.src}`
+      }
+    }
   ],
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css']
