@@ -1,3 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 @import '../node_modules/bootstrap-icons/font/bootstrap-icons.css';
+
+.skeleton-bg{
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0%{ background-color: hsl(200, 20%, 70%); }
+  100%{ background-color: hsl(200, 20%, 95%); }
+}
+
+.skeleton-text{
+  height: 20px;
+  width: 70%;
+  border-radius: 5px;
+}
+
+.skeleton-btn{
+  height: 30px;
+}
+
+.skeleton-img{
+  aspect-ratio: 6/5; 
+}

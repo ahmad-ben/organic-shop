@@ -41,5 +41,8 @@ testem.log
 .DS_Store
 Thumbs.db
 
-#My Eduction Files
+# My Eduction Files
 StandAloneApp.txt
+
+# Local Data
+Local Data

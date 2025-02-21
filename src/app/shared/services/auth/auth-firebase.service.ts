@@ -11,8 +11,8 @@ import { UserService } from '../user/user.service';
   providedIn: 'root',
 })
 export class AuthFirebaseService {
-    //=>Observable That Represent The Return Of The Firebase Auth Observable.
-    useInfoFromFB$!: Observable<firebase.default.User | null>;
+  //=>Observable That Represent The Return Of The Firebase Auth Observable.
+  useInfoFromFB$!: Observable<firebase.default.User | null>;
 
   constructor(
     private afAuth: AngularFireAuth,

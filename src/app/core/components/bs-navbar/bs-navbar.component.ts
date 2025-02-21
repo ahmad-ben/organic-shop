@@ -23,6 +23,7 @@ import { ShoppingCartService } from '../../../shared/services/shopping-cart/shop
 export class BsNavbarComponent implements OnInit {
   userInfo!: AppUser | null;
   cart$!: Observable<shoppingCart>;
+
   constructor (
     public authService: AuthFirebaseService,
     private shoppingCartSer: ShoppingCartService
@@ -33,8 +34,5 @@ export class BsNavbarComponent implements OnInit {
     this.cart$ = await this.shoppingCartSer.getCart();
   }
 
-  logOut(){
-    this.authService.logOut();
-  }
-
+  logOut(){ this.authService.logOut(); }
 }

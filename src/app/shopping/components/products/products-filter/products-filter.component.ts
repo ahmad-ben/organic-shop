@@ -17,6 +17,7 @@ import { CategoryService } from 'src/app/shared/services/categories/category.ser
 export class ProductsFilterComponent {
   categories$: Observable<any[]>;
   @Input('category') currentCategory : any;
+
   constructor(
     categoryService: CategoryService
   ){

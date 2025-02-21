@@ -26,28 +26,32 @@ export const routes : Routes = [
     path: 'check-out',
     component: CheckOutComponent,
     canActivate: [
-      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => inject(AuthGuardService).canActivateAuth(route, state)
+      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => 
+        inject(AuthGuardService).canActivateAuth(route, state)
     ]
   },
   {
     path: 'order-success/:id',
     component: OrderSuccessComponent,
     canActivate: [
-      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => inject(AuthGuardService).canActivateAuth(route, state)
+      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => 
+        inject(AuthGuardService).canActivateAuth(route, state)
     ]
   },
   {
     path: 'my/order/:index',
     component: OrderInfoComponent,
     canActivate: [
-      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => inject(AuthGuardService).canActivateAuth(route, state)
+      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => 
+        inject(AuthGuardService).canActivateAuth(route, state)
     ]
   },
   {
     path: 'my/orders',
     component: MyOrdersComponent,
     canActivate: [
-      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => inject(AuthGuardService).canActivateAuth(route, state)
+      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => 
+        inject(AuthGuardService).canActivateAuth(route, state)
     ]
   },
 
@@ -56,7 +60,8 @@ export const routes : Routes = [
     path: 'admin/products/new',
     component: ProductFromComponent,
     canActivate: [
-      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => inject(AuthGuardService).canActivateAuth(route, state),
+      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => 
+        inject(AuthGuardService).canActivateAuth(route, state),
       () => inject(AuthGuardService).canActivateAdmin(),
     ]
   },
@@ -64,7 +69,8 @@ export const routes : Routes = [
     path: 'admin/products/:id',
     component: ProductFromComponent,
     canActivate: [
-      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => inject(AuthGuardService).canActivateAuth(route, state),
+      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => 
+        inject(AuthGuardService).canActivateAuth(route, state),
       () => inject(AuthGuardService).canActivateAdmin(),
     ]
   },
@@ -72,7 +78,8 @@ export const routes : Routes = [
     path: 'admin/products',
     component: AdminProductsComponent,
     canActivate: [
-      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => inject(AuthGuardService).canActivateAuth(route, state),
+      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => 
+        inject(AuthGuardService).canActivateAuth(route, state),
       () => inject(AuthGuardService).canActivateAdmin(),
     ]
   },
@@ -80,7 +87,8 @@ export const routes : Routes = [
     path: 'admin/order/:index',
     component: AdminOrderInfoComponent,
     canActivate: [
-      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => inject(AuthGuardService).canActivateAuth(route, state),
+      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => 
+        inject(AuthGuardService).canActivateAuth(route, state),
       () => inject(AuthGuardService).canActivateAdmin(),
     ]
   },
@@ -88,7 +96,8 @@ export const routes : Routes = [
     path: 'admin/orders',
     component: AdminOrdersComponent,
     canActivate: [
-      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => inject(AuthGuardService).canActivateAuth(route, state),
+      (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) => 
+        inject(AuthGuardService).canActivateAuth(route, state),
       () => inject(AuthGuardService).canActivateAdmin(),
     ]
   },

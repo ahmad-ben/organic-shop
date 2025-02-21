@@ -9,6 +9,7 @@ import { shoppingCart } from '../../../shared/models/shopping-cart';
 import { ProductsService } from '../../../shared/services/products/products.service';
 import { ShoppingCartService } from '../../../shared/services/shopping-cart/shopping-cart.service';
 import { ProductsFilterComponent } from './products-filter/products-filter.component';
+import { ProductSkeletonComponent } from "../../../product-skeleton/product-skeleton.component";
 
 
 @Component({
@@ -19,8 +20,9 @@ import { ProductsFilterComponent } from './products-filter/products-filter.compo
     RouterModule,
     NgbDropdownModule,
     ProductsFilterComponent,
-    ProductCardComponent
-  ],
+    ProductCardComponent,
+    ProductSkeletonComponent
+],
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
@@ -29,6 +31,7 @@ export class ProductsComponent implements OnInit {
   filteredProducts!: product[];
   currentCategory!: string;
   shoppingCart$!: Observable<shoppingCart>;
+
   constructor (
     private route: ActivatedRoute,
     private productsService: ProductsService,

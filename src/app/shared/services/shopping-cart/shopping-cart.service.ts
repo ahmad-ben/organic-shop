@@ -18,8 +18,9 @@ export class ShoppingCartService {
     let ShoppingCartId: string = await this.getOrCreateCartId();
 
     //: Get The Object The Represent The Cart Of This User That Hold His Wanted Product And Their Quantity
-    let obsPrimitiveCart$ =  this.aFireDateBase.object(`/shopping-carts/${ShoppingCartId}`)
-    .valueChanges() as Observable<any>;
+    let obsPrimitiveCart$ = this.aFireDateBase
+      .object(`/shopping-carts/${ShoppingCartId}`)
+      .valueChanges() as Observable<any>;
 
     //: Make The Object A Class For Add The Mechanism Of Calculating The Total Quantity
     return obsPrimitiveCart$.pipe(map(primitiveCart => {
@@ -63,12 +64,12 @@ export class ShoppingCartService {
       //: Return The Shopping Cart Project
       return shoppingCartId
 
-      //=> Create A ShoppingCart
-      let result = await this.createShoppingCart();
-      //: Set The Value Of The shoppingCartId In The LocalStorage To The Key Of The Firebase Obj
-      localStorage.setItem('shoppingCartId', result.key as string);
-      //: Return The Shopping Cart Project
-      return result.key as string;
+    //=> Create A ShoppingCart
+    let result = await this.createShoppingCart();
+    //: Set The Value Of The shoppingCartId In The LocalStorage To The Key Of The Firebase Obj
+    localStorage.setItem('shoppingCartId', result.key as string);
+    //: Return The Shopping Cart Project
+    return result.key as string;
 
   }
 

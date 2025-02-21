@@ -16,17 +16,20 @@ export class AuthGuardService {
     private userService: UserService,
   ) { }
 
-  canActivateAuth(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) : Observable<boolean>{
+  canActivateAuth(
+    route: ActivatedRouteSnapshot, state: RouterStateSnapshot
+  ) : Observable<boolean>{
     //=>Create An Observable That Return Boolean Value From The Origin Obs.
     const userLogged$: Observable<boolean> = this.authService.useInfoFromFB$.pipe(
       map<firebase.default.User | null, boolean>(user => {
-        if
-          (user) return true;
-        else
-          this.router.navigate(['/login'], { queryParams:{wantedUrl: state.url} }); return false
+        if (user) return true;
+        else{
+          this.router.navigate(['/login'], { queryParams:{wantedUrl: state.url} }); 
+          return false;       
+        }
       })
       )
-      return userLogged$;
+    return userLogged$;
   }
 
   canActivateAdmin() : Observable<boolean>{

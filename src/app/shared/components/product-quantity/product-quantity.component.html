@@ -1,17 +1,21 @@
 <div class="product-quantity-com row g-0">
+
   <div class="col-2">
     <button
       class="decreaseItemBtn d-block w-100 btn btn-secondary"
       (click)="removeFromCartFun()"
     >-</button>
   </div>
+
   <div class="col d-flex justify-content-center align-items-center font-weight-bold">
     {{ shoppingCart.getQuantity(product) }} In Cart.
   </div>
+
   <div class="col-2">
     <button
       class="increaseItemBtn d-block w-100 btn btn-secondary"
       (click)="addToCartFun()"
     >+</button>
   </div>
+
 </div>
