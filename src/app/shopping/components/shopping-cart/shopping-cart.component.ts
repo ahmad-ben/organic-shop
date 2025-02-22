@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -12,6 +12,7 @@ import { ShoppingCartService } from '../../../shared/services/shopping-cart/shop
   imports: [
     CommonModule,
     RouterModule,
+    NgOptimizedImage,
     ProductQuantityComponent
   ],
   templateUrl: './shopping-cart.component.html',

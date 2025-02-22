@@ -1,12 +1,1 @@
-.product-image{
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  background-size: cover;
-}
-@media (max-width: 600px) {
-  .product-image{
-    width: 45px;
-    height: 45px;
-  }
-}
+

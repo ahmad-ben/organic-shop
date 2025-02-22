@@ -11,6 +11,7 @@ import 'firebase/auth';
 import { AppComponent } from "./app/app.component";
 import { routes } from './app/route/models/app-routing';
 import { environment } from "./environments/environment";
+import { IMAGE_LOADER, ImageLoaderConfig } from '@angular/common';
 
 //=>import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; => Import Angular Bootstrap
 
@@ -26,6 +27,13 @@ bootstrapApplication(AppComponent,
         provideFirestore(() => getFirestore()), //=>For FireStore.
         AngularFireModule.initializeApp( environment.firebaseConfig ),
       ),
+      {
+        provide: IMAGE_LOADER,
+        useValue: (config: ImageLoaderConfig) => {
+          return `https://ik.imagekit.io/AhmedBenChakhter/${config.src}`
+        }
+      }
+
     ],
   }
 );

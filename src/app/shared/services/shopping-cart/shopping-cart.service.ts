@@ -42,7 +42,6 @@ export class ShoppingCartService {
     //=> Get An Object Reference For The Wanted Products To Check If We Have It Or Not.
     let itemObj = this.getItemObj(shoppingCartId, product.key);
 
-
     //=> Create An Obs From That Object Reference.
     let itemObjObs$ = itemObj.valueChanges();
 

@@ -1,7 +1,11 @@
 <h1>Shopping Cart</h1>
-<div class="row col-md-9 col-md-6" *ngIf="(cart$ | async) as shoppingCart">
+
+<div class="row col-md-9 col-md-6" *ngIf="(cart$ | async) as shoppingCart; else tableLoading">
+
   <p>You Have {{ shoppingCart.totalItemCount }} In Your Shopping Cart</p>
-  <table class="table" *ngIf="shoppingCart.totalItemCount" >
+
+  <table class="table" *ngIf="shoppingCart.totalItemCount">
+
     <thead>
       <tr>
         <th></th>
@@ -10,20 +14,35 @@
         <th class="text-end">Price</th>
       </tr>
     </thead>
+
     <tbody>
-      <tr *ngFor="let productArray of shoppingCart.productsInfoArr">
+      <tr *ngFor="let productInfo of shoppingCart.productsInfoArr">
+
         <td class="d-flex justify-content-center align-items-center">
-          <div class="product-image" [style.backgroundImage]="'url(' + productArray.product.imageUrl + ')'"></div>
+          <img 
+            [ngSrc]="productInfo.product.imageUrl" 
+            width="60" height="60"
+            [alt]="productInfo.product.title + ' image'"
+            class="skeleton-bg product-image"
+          >
         </td>
-        <td>{{ productArray.product.title }}</td>
+
+        <td>{{ productInfo.product.title }}</td>
+
         <td style="width: 220px;" class="px-0">
-          <product-quantity [product]="productArray.product" [shopping-cart]="shoppingCart" ></product-quantity>
+          <product-quantity 
+            [product]="productInfo.product" 
+            [shopping-cart]="shoppingCart"
+          />
         </td>
+  
         <td class="text-end">
-          {{ productArray.totalPrice | currency:'USD':'symbol'}}
+          {{ productInfo.totalPrice | currency:'USD':'symbol'}}
         </td>
+
       </tr>
     </tbody>
+
     <tfoot>
       <tr>
         <th></th>
@@ -32,20 +51,24 @@
         <th class="text-end"> {{ shoppingCart.totalPrice | currency:'USD':'symbol' }} </th>
       </tr>
     </tfoot>
+
   </table>
+
   <a
-  routerLink="/check-out"
-  *ngIf="shoppingCart.totalItemCount"
-  class="btn btn-primary btn-sm ms-2 text-white"
-  style="width: fit-content;"
-  >
-  Check Out
-  </a>
+    routerLink="/check-out"
+    *ngIf="shoppingCart.totalItemCount"
+    class="btn btn-primary btn-sm ms-2 text-white"
+    style="width: fit-content;"
+  > Check Out </a>
+
   <button
     *ngIf="shoppingCart.totalItemCount"
     (click)="deleteCart()"
     class="btn btn-danger btn-sm ms-2"
     style="width: fit-content;"
-  >Clear Card
-  </button>
+  > Clear Card </button>
 </div>
+
+<ng-template #tableLoading>
+  Loading...
+</ng-template>
