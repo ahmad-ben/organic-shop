@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription, map } from 'rxjs';
@@ -8,7 +8,7 @@ import { OrderService } from '../../../shared/services/order/order.service';
 @Component({
   selector: 'app-order-info',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './order-info.component.html',
   styleUrls: ['./order-info.component.css']
 })
@@ -21,7 +21,6 @@ export class OrderInfoComponent {
     private orderService: OrderService,
     private route: ActivatedRoute,
   ){
-
     this.OrderById$ = this.orderService.getOrdersById().pipe(
       map((allIdOrders: any[]) => {
         let routeOrderIndex = this.route.snapshot.paramMap.get('index') as string;

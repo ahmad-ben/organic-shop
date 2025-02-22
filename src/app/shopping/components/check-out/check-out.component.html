@@ -1,5 +1,5 @@
 <h1>Shipping</h1>
-<div class="row" *ngIf="cart$ | async as cart" >
+<div class="row" *ngIf="cart$ | async as cart; else orderSummaryLoading;" >
   <div class="col-md-6">
     <shipping-form [cart]="cart"></shipping-form>
   </div>
@@ -9,3 +9,7 @@
   <shopping-cart-summary [cart]="cart"></shopping-cart-summary>
   </div>
 </div>
+
+<ng-template #orderSummaryLoading>
+  Your order summary is loading...
+</ng-template>

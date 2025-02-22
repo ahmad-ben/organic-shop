@@ -25,6 +25,10 @@
   aspect-ratio: 6/5; 
 }
 
+tbody tr{
+  vertical-align: middle;
+}
+
 .product-image{
   width: 60px;
   height: 60px;

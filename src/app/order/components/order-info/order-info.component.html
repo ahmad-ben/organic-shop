@@ -1,6 +1,9 @@
 <h1>Order Info</h1>
+
 <div class="row col-md-9 col-md-6">
-  <table class="table" *ngIf=" OrderById$ | async as order">
+
+  <table class="table" *ngIf=" OrderById$ | async as order; else orderDataLoading;">
+
     <thead>
       <tr>
         <th></th>
@@ -10,20 +13,35 @@
         <th>total Price</th>
       </tr>
     </thead>
+
     <tbody>
+
       <tr *ngFor="let shippingInfo of order.shippingInfo">
+
         <td class="d-flex justify-content-center align-items-center">
-          <div
-            class="product-image"
-            [style.backgroundImage]="'url(' + shippingInfo.productInfo.imageUrl + ')'"
-          ></div>
+          <img 
+            [ngSrc]="shippingInfo.productInfo.imageUrl" 
+            width="60" height="60"
+            [alt]="shippingInfo.productInfo.title + ' image'"
+            class="skeleton-bg product-image"
+          >
         </td>
+
         <td> {{ shippingInfo.productInfo.title }} </td>
+
         <td class="fw-bold"> {{ shippingInfo.productInfo.price  | currency:'USD':'symbol'}} </td>
+
         <td> {{ shippingInfo.productInfo.quantity }} </td>
+
         <td class="fw-bold"> {{ shippingInfo.productInfo.totalPrice  | currency:'USD':'symbol'}} </td>
       </tr>
     </tbody>
+
   </table>
+
+  <ng-template #orderDataLoading>
+    Your order details are coming...
+  </ng-template>
+
 </div>
 

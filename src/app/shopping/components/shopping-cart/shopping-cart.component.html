@@ -1,6 +1,9 @@
 <h1>Shopping Cart</h1>
 
-<div class="row col-md-9 col-md-6" *ngIf="(cart$ | async) as shoppingCart; else tableLoading">
+<div 
+  class="row col-md-9 col-md-6" 
+  *ngIf="(cart$ | async) as shoppingCart; else tableLoading"
+>
 
   <p>You Have {{ shoppingCart.totalItemCount }} In Your Shopping Cart</p>
 
