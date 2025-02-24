@@ -4,6 +4,7 @@
 >
   <img
     [ngSrc]="product.imageUrl"
+    [loaderParams]="{rawImg: !addToCart}"
     *ngIf="product.imageUrl"
     class="card-img-top skeleton-bg" alt="image description"
     width="120" height="100"

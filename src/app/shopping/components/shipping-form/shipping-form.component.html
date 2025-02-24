@@ -21,7 +21,7 @@
       <div *ngIf=" addressLine1.errors!['required'] ">address Is Required</div>
     </div>
       <input
-        [(ngModel)]="buyerInfo.addressLine2" name="addressLine2" required #addressLine2="ngModel"
+        [(ngModel)]="buyerInfo.addressLine2" name="addressLine2" #addressLine2="ngModel"
         id="address" type="text" class="form-control" placeholder="line 2"
       >
     <div class="alert alert-danger py-1" *ngIf=" addressLine2.touched && addressLine2.invalid ">

@@ -47,25 +47,30 @@
       <div class="form-group">
         <label for="imageUrl"> Image URL </label>
         <input
-          [(ngModel)]="product.imageUrl" name="imageUrl" required #imageUrl="ngModel"
+          [(ngModel)]="product.imageUrl" name="imageUrl" 
+          required #imageUrl="ngModel"
           id="imageUrl" type="url" class="form-control"
         >
         <div class="alert alert-danger py-1" *ngIf=" imageUrl.touched && imageUrl.invalid ">
           <div *ngIf=" imageUrl.errors?.['required'] ">Image URL Is Required</div>
-          <!-- <div *ngIf=" imageUrl.errors?.['url'] ">Please Enter A Valid URL.</div> -->
         </div>
       </div>
 
       <div>
-        <button class="btn btn-primary m-2"> Save </button>
+        <button 
+          class="btn btn-primary m-2" 
+          [class.disabled]="!formInfo.valid"
+          [disabled]="!formInfo.valid"
+        > Save </button>
         <button type="button" class="btn btn-danger m-2" (click)="deleteProduct(productId)"> Delete </button>
       </div>
 
 
     </form>
   </div>
+
   <div class="col-md-6">
-    <product-card [product]="product" [addToCart]="false" ></product-card>
+    <product-card [product]="product" [addToCart]="false"/>
   </div>
 </div>
 

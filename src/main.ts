@@ -30,6 +30,8 @@ bootstrapApplication(AppComponent,
       {
         provide: IMAGE_LOADER,
         useValue: (config: ImageLoaderConfig) => {
+          if(config.loaderParams?.rawImg) 
+            return config.src;
           return `https://ik.imagekit.io/AhmedBenChakhter/${config.src}`
         }
       }

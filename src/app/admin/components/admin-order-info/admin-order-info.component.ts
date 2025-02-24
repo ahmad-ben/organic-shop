@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription, map } from 'rxjs';
@@ -8,7 +8,7 @@ import { OrderService } from '../../../shared/services/order/order.service';
 @Component({
   selector: 'admin-order-info',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './admin-order-info.component.html',
   styleUrls: ['./admin-order-info.component.css']
 })
