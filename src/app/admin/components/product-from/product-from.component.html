@@ -62,9 +62,13 @@
           [class.disabled]="!formInfo.valid"
           [disabled]="!formInfo.valid"
         > Save </button>
-        <button type="button" class="btn btn-danger m-2" (click)="deleteProduct(productId)"> Delete </button>
-      </div>
 
+        <button 
+          type="button" 
+          class="btn btn-danger m-2" 
+          (click)="deleteProduct(productId)"
+        > Delete </button>
+      </div>
 
     </form>
   </div>

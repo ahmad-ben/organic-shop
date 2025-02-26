@@ -33,7 +33,12 @@ export class ProductFromComponent {
     this.categories$ = categoryService.getAllCategories();
     this.productId = route.snapshot.paramMap.get('id');
     if(this.productId)
-      this.productsService.getProduct(this.productId).pipe(take(1)).subscribe(p=> this.product = p);
+      this.productsService.getProduct(this.productId)
+      .pipe(take(1))
+      .subscribe(p => {
+        this.product = p
+        this.product.key = this.productId;
+      });
   }
 
   save(productInfo: any){
